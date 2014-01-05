@@ -15,10 +15,14 @@ class WikimediaCommons(object):
 
         self.client = MediaWiki(scheme + '://commons.wikimedia.org/w/api.php')
 
-    def call_api(self, title, namespace='Image'):
+    def call_api(self, title, namespace='Image', thumbwidth=None):
         """ Call the Commons API """
         title = '{0}:{1}'.format(namespace, title)
-        result = self.client.call({'action': 'query', 'titles': title, 'prop': 'imageinfo', 'iiprop': 'url'})
+        params = {'action': 'query', 'titles': title, 'prop': 'imageinfo', 'iiprop': 'url'}
+        if thumbwidth is not None:
+            params['iiurlwidth'] = thumbwidth
+
+        result = self.client.call(params)
         pages = result['query']['pages']
         id = pages.keys()[0]
 
@@ -31,7 +35,13 @@ class WikimediaCommons(object):
         """ Retrieve the URL to the raw image """
         result = self.call_api(name)
         image = result['imageinfo'][0]
-        
+
         return image['url']
-      
+
+    def get_thumb_image_url(self, name, width):
+        """ Retrieve the URL to the thumbnail image """
+        result = self.call_api(name, thumbwidth=width)
+        image = result['imageinfo'][0]
+
+        return image['thumburl']
         
