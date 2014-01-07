@@ -1,5 +1,13 @@
 #!/usr/bin/python
 
+""" Retrieves various meta-data of an image hosted on Wikimedia Commons.
+
+Part of the flag-loader project.
+
+Copyright: (C) 2014 Michael Bemmerl
+License: MIT License (see COPYING)
+"""
+
 # https://commons.wikimedia.org/w/api.php?action=query&titles=Image:Commons-logo.svg&prop=imageinfo&iiprop=url&iiurlwidth=150&format=json
 
 from simplemediawiki import MediaWiki
