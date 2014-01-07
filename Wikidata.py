@@ -52,8 +52,13 @@ class Wikidata(object):
         claims = call['claims']
         result = dict()
         
-        for claim in claims:
-            result[claim] = claims[claim][0]['mainsnak']['datavalue']['value']
+        for property in claims:
+            result[property] = list()
+            values = claims[property]
+
+            # multiple values are possible (see P31 on Q42)
+            for value in values:
+                result[property].append(value['mainsnak']['datavalue'])
         
         return result
         
