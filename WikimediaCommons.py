@@ -23,7 +23,7 @@ class WikimediaCommons(object):
         pages = result['query']['pages']
         id = pages.keys()[0]
 
-        if id is -1:
+        if int(id) is -1:
             return None
         else:
             return pages[id]
@@ -31,6 +31,9 @@ class WikimediaCommons(object):
     def get_image_url(self, name):
         """ Retrieve the URL to the raw image """
         result = self.__call_api(name)
+        if result is None:
+            return None
+
         image = result['imageinfo'][0]
 
         return image['url']
@@ -38,6 +41,9 @@ class WikimediaCommons(object):
     def get_thumb_image_url(self, name, width):
         """ Retrieve the URL to the thumbnail image """
         result = self.__call_api(name, thumbwidth=width)
+        if result is None:
+            return None
+
         image = result['imageinfo'][0]
 
         return image['thumburl']
