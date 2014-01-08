@@ -24,8 +24,16 @@ class Wikidata(object):
 
         self.client = MediaWiki(scheme + '://en.wikidata.org/w/api.php')
 
-    def get_entities_from_title(self, title):
-        params = {'action': 'wbgetentities', 'sites': 'enwiki', 'titles': title, 'props': ''}
+    def get_entities_from_title(self, title, sites='enwiki'):
+        """Return the entities matching the supplied title in a list.
+        
+        Arguments:
+        title -- Name of the entity
+        sites -- Wikidata site which should be searched for the title (default enwiki)
+        
+        Returns an empty list when no matching entity was found.
+        """
+        params = {'action': 'wbgetentities', 'sites': sites, 'titles': title, 'props': ''}
 
         call = self.client.call(params)
         entities = call['entities'].keys()
@@ -43,6 +51,15 @@ class Wikidata(object):
             return result
         
     def get_claims_from_entity(self, entity, property=None):
+        """Return the claims of the supplied entity.
+        
+        Arguments:
+        entity -- Entity identifier
+        property -- Filter to return only claims which has this property (default None)
+        
+        Returns a dictionary containing each claim. The value holds a list with the property values.
+        Returns None when the entity was not found.
+        """
         params = {'action': 'wbgetclaims', 'entity': entity}
         if property is not None:
             params['property'] = property
