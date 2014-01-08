@@ -14,6 +14,9 @@ License: MIT License (see COPYING)
 from simplemediawiki import MediaWiki
 
 class Wikidata(object):
+    PROPERTY_COUNTRY = 'P17'
+    PROPERTY_FLAG_IMAGE = 'P41'
+    
     def __init__(self, SSL=None):
         scheme = 'http'
         if SSL is True:
