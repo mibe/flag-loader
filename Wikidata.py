@@ -21,7 +21,7 @@ class Wikidata(object):
 
         self.client = MediaWiki(scheme + '://en.wikidata.org/w/api.php')
 
-    def get_entites_from_title(self, title):
+    def get_entities_from_title(self, title):
         params = {'action': 'wbgetentities', 'sites': 'enwiki', 'titles': title, 'props': ''}
 
         call = self.client.call(params)
