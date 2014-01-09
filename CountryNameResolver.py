@@ -1,7 +1,8 @@
 
 from Wikidata import Wikidata
+from WikidataItemResolver import WikidataItemResolver
 
-class CountryNameResolver(object):
+class CountryNameResolver(WikidataItemResolver):
     def get_flag(self, name):
         wd = Wikidata()
 
@@ -11,13 +12,6 @@ class CountryNameResolver(object):
         if not entities:
             return None
 
-        flag = wd.get_claims_from_entity(entities[0], property=Wikidata.PROPERTY_FLAG_IMAGE)
-
-        # Has the country a flag image property?
-        if flag is None:
-            return None
-
-        # Yes it has, get the image name from the data
-        flag = flag[Wikidata.PROPERTY_FLAG_IMAGE][0]['value']
-        
-        return flag
+        # Call base class get_flag method
+        # (uses the Wikidata item identifier retrieved above)
+        return super(CountryNameResolver, self).get_flag(entities[0])
