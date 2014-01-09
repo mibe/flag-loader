@@ -62,7 +62,8 @@ class Wikidata(object):
 
         call = self.client.call(params)
         
-        if u'error' in call:
+        # If entity was not found or on an empty claims dictionary return
+        if u'error' in call or not call['claims']:
             return None
             
         claims = call['claims']
