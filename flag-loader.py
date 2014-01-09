@@ -13,7 +13,7 @@ Tested with Python 2.7.6 and simplemediawiki 1.2.0b2
 """
 
 import argparse
-import sys
+import urllib
 from WikimediaCommons import WikimediaCommons
 from TLDResolver import TLDResolver
 from CountryNameResolver import CountryNameResolver
@@ -56,5 +56,5 @@ for entry in args.LIST:
         print flag_url
     else:
         print "Downloading '{0}'...".format(flag)
-        # Insert downloading routine here
+        data = urllib.urlretrieve(flag_url, flag)
         print "Done."
