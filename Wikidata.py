@@ -19,7 +19,7 @@ class Wikidata(object):
     
     def __init__(self, SSL=None):
         scheme = 'http'
-        if SSL is True:
+        if SSL:
             scheme += 's'
 
         self.client = MediaWiki(scheme + '://en.wikidata.org/w/api.php')
@@ -40,16 +40,12 @@ class Wikidata(object):
         
         result = list()
         
-        try:
-            # If the first key is an integer ("-1"), no entities were found.
-            int(entities[0])
-            return result
-        except ValueError:
-            # Exception: Not an integer, so it should be something like "Q1234".
+        if entities[0] != -1:
             for entity in entities:
                 result.append(entity)
-            return result
-        
+                
+        return result
+    
     def get_claims_from_entity(self, entity, property=None):
         """Return the claims of the supplied entity.
         

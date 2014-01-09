@@ -15,7 +15,7 @@ from simplemediawiki import MediaWiki
 class WikimediaCommons(object):
     def __init__(self, SSL=None):
         scheme = 'http'
-        if SSL is True:
+        if SSL:
             scheme += 's'
 
         self.client = MediaWiki(scheme + '://commons.wikimedia.org/w/api.php')
@@ -38,8 +38,8 @@ class WikimediaCommons(object):
         result = self.client.call(params)
         pages = result['query']['pages']
         id = pages.keys()[0]
-
-        if int(id) is -1:
+        
+        if id == -1:
             return None
         else:
             return pages[id]
