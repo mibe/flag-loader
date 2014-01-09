@@ -28,8 +28,8 @@ group.add_argument('--iso-3166-1', action='store_true', help="Interpret LIST as 
 
 # More to come: http://www.statoids.com/wab.html
 
-parser.add_argument('--png', action='store_true', help="Download a PNG image instead of a SVG")
-parser.add_argument('--png-width', help="Width of that PNG")
+parser.add_argument('--bitmap', action='store_true', help="Download a raster image instead of a vector graphic")
+parser.add_argument('--bitmap-width', type=int, metavar='WIDTH', help="Width of the raster image in pixels")
 parser.add_argument('--url', action='store_true', help="Do not download, print URL only")
 
 args = parser.parse_args()
