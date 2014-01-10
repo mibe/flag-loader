@@ -16,9 +16,7 @@ import argparse
 import urllib
 import sys
 from WikimediaCommons import WikimediaCommons
-from TLDResolver import TLDResolver
-from CountryNameResolver import CountryNameResolver
-from ISO31661Resolver import ISO31661Resolver
+from resolver import *
 
 parser = argparse.ArgumentParser(description="A tool for downloading country flags from Wikimedia Commons")
 parser.add_argument('LIST', nargs='+', help="List of data separated by a space (e.g. 'DE AU')")
