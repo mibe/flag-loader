@@ -14,6 +14,7 @@ Tested with Python 2.7.6 and simplemediawiki 1.2.0b2
 
 import argparse
 import urllib
+import sys
 from WikimediaCommons import WikimediaCommons
 from TLDResolver import TLDResolver
 from CountryNameResolver import CountryNameResolver
@@ -44,10 +45,12 @@ else:
     parser.error("Too few arguments. At least one of the optional arguments ('--tld', '--name', etc.) must be given.")
 
 for entry in args.LIST:
+    entry = resolver.normalize(entry)
     flag = resolver.get_flag(entry)
 
     if flag is None:
-        parser.exit(status=1, message="No flag found for '{0}' found.".format(entry))
+        print >> sys.stderr, "No flag for '{0}' found.".format(entry)
+        continue
 
     wmc = WikimediaCommons()
     
