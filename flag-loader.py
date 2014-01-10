@@ -1,9 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
-""" Downloading country flags from Wikimedia Commons
+"""Downloading country flags from Wikimedia Commons
 
 Copyright: (C) 2014 Michael Bemmerl
-License: MIT License (see COPYING)
+License: MIT License (see LICENSE.txt)
 
 Requirements:
 - Python (well, obviously ;-)
@@ -33,6 +33,7 @@ parser.add_argument('--url', action='store_true', help="Do not download, print U
 
 args = parser.parse_args()
 
+# Instantiate correct resolver
 if args.tld:
     resolver = TLDResolver()
 elif args.name:
@@ -43,6 +44,7 @@ else:
     parser.error("Too few arguments. At least one of the optional arguments ('--tld', '--name', etc.) must be given.")
 
 for entry in args.LIST:
+    # Normalize the input, then try to get the flag.
     entry = resolver.normalize(entry)
     flag = resolver.get_flag(entry)
 

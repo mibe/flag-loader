@@ -1,11 +1,9 @@
-#!/usr/bin/python
-
 """ Retrieves various data of an entity on Wikidata.
 
 Part of the flag-loader project.
 
 Copyright: (C) 2014 Michael Bemmerl
-License: MIT License (see COPYING)
+License: MIT License (see LICENSE.txt)
 """
 
 # https://en.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&titles=.de&format=jsonfm&props=claims
@@ -14,6 +12,7 @@ License: MIT License (see COPYING)
 from simplemediawiki import MediaWiki
 
 class Wikidata(object):
+    """Talks to the Wikidata API to retrieve information about entities and claims."""
     PROPERTY_COUNTRY = 'P17'
     PROPERTY_FLAG_IMAGE = 'P41'
     

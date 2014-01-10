@@ -1,8 +1,21 @@
+"""Part of the flag-loader project.
+
+Copyright: (C) 2014 Michael Bemmerl
+License: MIT License (see LICENSE.txt)
+
+Exported classes: WikidataItemResolver
+"""
 
 from Wikidata import Wikidata
 from BaseResolver import BaseResolver
 
 class WikidataItemResolver(BaseResolver):
+    """Retrieves the flag image claim from a Wikidata item.
+    
+        
+    This class is for internal use only and should not be called directly.
+    """
+    
     def get_flag(self, item):
         # Items start with a 'Q' (see Wikidata glossary)
         if item[0] != 'Q':
