@@ -1,7 +1,8 @@
 
 from Wikidata import Wikidata
+from BaseResolver import BaseResolver
 
-class WikidataItemResolver(object):
+class WikidataItemResolver(BaseResolver):
     def get_flag(self, item):
         # Items start with a 'Q' (see Wikidata glossary)
         if item[0] != 'Q':

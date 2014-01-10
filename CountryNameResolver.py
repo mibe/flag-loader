@@ -15,3 +15,7 @@ class CountryNameResolver(WikidataItemResolver):
         # Call base class get_flag method
         # (uses the Wikidata item identifier retrieved above)
         return super(CountryNameResolver, self).get_flag(entities[0])
+    
+    def normalize(self, name):
+        # nothing do to here
+        return name
