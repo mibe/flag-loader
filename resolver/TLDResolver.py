@@ -6,8 +6,8 @@ License: MIT License (see LICENSE.txt)
 Exported classes: TLDResolver
 """
 
-from Wikidata import Wikidata
 from WikidataTitleResolver import WikidataTitleResolver
+
 
 class TLDResolver(WikidataTitleResolver):
     """Resolves a flag image from a country-code top level domain (e.g. '.de')."""

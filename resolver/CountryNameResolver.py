@@ -9,6 +9,7 @@ Exported classes: CountryNameResolver
 from Wikidata import Wikidata
 from WikidataItemResolver import WikidataItemResolver
 
+
 class CountryNameResolver(WikidataItemResolver):
     """Resolves a country name (e.g. 'Germany') to a flag image.
     

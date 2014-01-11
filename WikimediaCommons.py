@@ -10,6 +10,7 @@ License: MIT License (see LICENSE.txt)
 
 from simplemediawiki import MediaWiki
 
+
 class WikimediaCommons(object):
     """Talks to the Wikimedia Commons API to retrieve information about an
     image hosted on Wikimedia Commons.
@@ -78,4 +79,3 @@ class WikimediaCommons(object):
         image = result['imageinfo'][0]
 
         return image['thumburl']
-        

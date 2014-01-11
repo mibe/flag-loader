@@ -9,6 +9,7 @@ Exported classes: WikidataTitleResolver
 from Wikidata import Wikidata
 from WikidataItemResolver import WikidataItemResolver
 
+
 class WikidataTitleResolver(WikidataItemResolver):
     """Resolves a title to an valid Wikidata country entity.
     

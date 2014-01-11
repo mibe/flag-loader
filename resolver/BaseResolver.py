@@ -8,6 +8,7 @@ Exported classes: BaseResolver
 
 from abc import ABCMeta, abstractmethod
 
+
 class BaseResolver(object):
     """Abstract base class for all resolvers."""
     __metaclass__ = ABCMeta

@@ -9,6 +9,7 @@ Exported classes: WikidataItemResolver
 from Wikidata import Wikidata
 from BaseResolver import BaseResolver
 
+
 class WikidataItemResolver(BaseResolver):
     """Retrieves the flag image claim from a Wikidata item.
     
@@ -32,4 +33,3 @@ class WikidataItemResolver(BaseResolver):
         flag = flag[Wikidata.PROPERTY_FLAG_IMAGE][0]['value']
         
         return flag
-    

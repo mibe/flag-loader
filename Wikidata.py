@@ -11,11 +11,12 @@ License: MIT License (see LICENSE.txt)
 
 from simplemediawiki import MediaWiki
 
+
 class Wikidata(object):
     """Talks to the Wikidata API to retrieve information about entities and claims."""
     PROPERTY_COUNTRY = 'P17'
     PROPERTY_FLAG_IMAGE = 'P41'
-    
+
     def __init__(self, SSL=None):
         scheme = 'http'
         if SSL:
@@ -25,11 +26,11 @@ class Wikidata(object):
 
     def get_entities_from_title(self, title, sites='enwiki'):
         """Return the entities matching the supplied title in a list.
-        
+
         Arguments:
         title -- Name of the entity
         sites -- Wikidata site which should be searched for the title (default enwiki)
-        
+
         Returns an empty list when no matching entity was found.
         """
         params = {'action': 'wbgetentities', 'sites': sites, 'titles': title, 'props': ''}
@@ -77,4 +78,3 @@ class Wikidata(object):
                 result[property].append(value['mainsnak']['datavalue'])
         
         return result
-        

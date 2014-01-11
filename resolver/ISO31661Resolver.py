@@ -6,8 +6,8 @@ License: MIT License (see LICENSE.txt)
 Exported classes: ISO31661Resolver
 """
 
-from Wikidata import Wikidata
 from WikidataTitleResolver import WikidataTitleResolver
+
 
 class ISO31661Resolver(WikidataTitleResolver):
     """Resolves an ISO 3166-1 alpha-2 code (e.g. 'DE') to a flag image."""
