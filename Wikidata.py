@@ -16,6 +16,7 @@ class Wikidata(object):
     """Talks to the Wikidata API to retrieve information about entities and claims."""
     PROPERTY_COUNTRY = 'P17'
     PROPERTY_FLAG_IMAGE = 'P41'
+    PROPERTY_APPLIES_TO_TERRITORIAL_JURISDICTION = 'P1001'
 
     def __init__(self):
         self.client = MediaWiki('https://www.wikidata.org/w/api.php')
