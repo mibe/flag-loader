@@ -2,7 +2,7 @@
 
 Part of the flag-loader project.
 
-Copyright: (C) 2014 Michael Bemmerl
+Copyright: (C) 2014,2016 Michael Bemmerl
 License: MIT License (see LICENSE.txt)
 """
 
@@ -17,12 +17,8 @@ class Wikidata(object):
     PROPERTY_COUNTRY = 'P17'
     PROPERTY_FLAG_IMAGE = 'P41'
 
-    def __init__(self, SSL=None):
-        scheme = 'http'
-        if SSL:
-            scheme += 's'
-
-        self.client = MediaWiki(scheme + '://en.wikidata.org/w/api.php')
+    def __init__(self):
+        self.client = MediaWiki('https://www.wikidata.org/w/api.php')
 
     def get_entities_from_title(self, title, sites='enwiki'):
         """Return the entities matching the supplied title in a list.

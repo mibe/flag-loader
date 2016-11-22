@@ -2,7 +2,7 @@
 
 Part of the flag-loader project.
 
-Copyright: (C) 2014 Michael Bemmerl
+Copyright: (C) 2014,2016 Michael Bemmerl
 License: MIT License (see LICENSE.txt)
 """
 
@@ -16,12 +16,8 @@ class WikimediaCommons(object):
     image hosted on Wikimedia Commons.
     """
     
-    def __init__(self, SSL=None):
-        scheme = 'http'
-        if SSL:
-            scheme += 's'
-
-        self.client = MediaWiki(scheme + '://commons.wikimedia.org/w/api.php')
+    def __init__(self):
+        self.client = MediaWiki('https://commons.wikimedia.org/w/api.php')
 
     def __call_api(self, title, namespace='Image', thumbwidth=None):
         """Call the Commons API.
