@@ -7,9 +7,9 @@ License: MIT License (see LICENSE.txt)
 
 Requirements:
 - Python (well, obviously ;-)
-- simplemediawiki (https://pypi.python.org/pypi/simplemediawiki)
+- simplemediawiki (https://github.com/iliana/python-simplemediawiki/releases)
 
-Tested with Python 2.7.6 and simplemediawiki 1.2.0b2
+Tested with Python 3.8.2 and simplemediawiki 1.2.0b2
 """
 
 import argparse

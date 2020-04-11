@@ -51,10 +51,14 @@ Output:
 Requirements
 -----
 
-* Python (well, obviously ;-)
-* simplemediawiki (https://pypi.python.org/pypi/simplemediawiki)
+* Python 3
+* simplemediawiki > 1.1.1 (https://github.com/iliana/python-simplemediawiki/releases)
 
-Tested with Python 2.7.6 & simplemediawiki 1.2.0b2.
+Tested with Python 3.8.2 & simplemediawiki 1.2.0b2.
+
+Installation
+-----
+Run ```pip install -r requirements.txt``` to install the dependencies with pip.
 
 License
 -----
