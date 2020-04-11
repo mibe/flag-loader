@@ -6,7 +6,7 @@ License: MIT License (see LICENSE.txt)
 Exported classes: TLDResolver
 """
 
-from WikidataTitleResolver import WikidataTitleResolver
+from .WikidataTitleResolver import WikidataTitleResolver
 
 
 class TLDResolver(WikidataTitleResolver):

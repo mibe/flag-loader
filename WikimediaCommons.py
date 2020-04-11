@@ -36,7 +36,7 @@ class WikimediaCommons(object):
 
         result = self.client.call(params)
         pages = result['query']['pages']
-        id = pages.keys()[0]
+        id = list(pages.keys())[0]
         
         if id == -1:
             return None

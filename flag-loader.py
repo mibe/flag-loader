@@ -13,7 +13,7 @@ Tested with Python 2.7.6 and simplemediawiki 1.2.0b2
 """
 
 import argparse
-import urllib
+import urllib.request, urllib.parse, urllib.error
 import sys
 from WikimediaCommons import WikimediaCommons
 from resolver import *
@@ -49,7 +49,7 @@ for entry in args.LIST:
     flag = resolver.get_flag(entry)
 
     if flag is None:
-        print >> sys.stderr, "No flag for '{0}' found.".format(entry)
+        print("No flag for '{0}' found.".format(entry), file=sys.stderr)
         continue
 
     wmc = WikimediaCommons()
@@ -64,7 +64,7 @@ for entry in args.LIST:
         flag_url = wmc.get_image_url(flag)
 
     if args.url:
-        print flag_url
+        print(flag_url)
     else:
         # Use flag name as file name
         file = flag
@@ -75,6 +75,6 @@ for entry in args.LIST:
             # Extract file extensions and fiddle all together
             file = '{0}-{1}px.{2}'.format(flag[:flag.rindex('.')], width, flag_url[flag_url.rindex('.') + 1:])
             
-        print "Downloading {1}'{0}'...".format(flag, bmptxt)
-        data = urllib.urlretrieve(flag_url, file)
-        print "Done."
+        print("Downloading {1}'{0}'...".format(flag, bmptxt))
+        data = urllib.request.urlretrieve(flag_url, file)
+        print("Done.")

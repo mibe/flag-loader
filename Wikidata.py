@@ -33,7 +33,7 @@ class Wikidata(object):
         params = {'action': 'wbgetentities', 'sites': sites, 'titles': title, 'props': ''}
 
         call = self.client.call(params)
-        entities = call['entities'].keys()
+        entities = list(call['entities'].keys())
         
         result = list()
         
@@ -60,7 +60,7 @@ class Wikidata(object):
         call = self.client.call(params)
         
         # If entity was not found or on an empty claims dictionary return
-        if u'error' in call or not call['claims']:
+        if 'error' in call or not call['claims']:
             return None
             
         claims = call['claims']

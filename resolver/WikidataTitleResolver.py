@@ -7,7 +7,7 @@ Exported classes: WikidataTitleResolver
 """
 
 from Wikidata import Wikidata
-from WikidataItemResolver import WikidataItemResolver
+from .WikidataItemResolver import WikidataItemResolver
 
 
 class WikidataTitleResolver(WikidataItemResolver):
@@ -45,7 +45,7 @@ class WikidataTitleResolver(WikidataItemResolver):
                 return None
         
         # Value comes in pure integer form and needs some formatting.
-        country = u'Q{0}'.format(country)
+        country = 'Q{0}'.format(country)
 
         # Call base class get_flag method
         return super(WikidataTitleResolver, self).get_flag(country)

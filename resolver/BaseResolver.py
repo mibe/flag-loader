@@ -9,9 +9,8 @@ Exported classes: BaseResolver
 from abc import ABCMeta, abstractmethod
 
 
-class BaseResolver(object):
+class BaseResolver(object, metaclass=ABCMeta):
     """Abstract base class for all resolvers."""
-    __metaclass__ = ABCMeta
     
     @abstractmethod
     def get_flag(self, data):

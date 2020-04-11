@@ -7,7 +7,7 @@ Exported classes: WikidataItemResolver
 """
 
 from Wikidata import Wikidata
-from BaseResolver import BaseResolver
+from .BaseResolver import BaseResolver
 
 
 class WikidataItemResolver(BaseResolver):

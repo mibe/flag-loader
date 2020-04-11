@@ -7,7 +7,7 @@ Exported classes: CountryNameResolver
 """
 
 from Wikidata import Wikidata
-from WikidataItemResolver import WikidataItemResolver
+from .WikidataItemResolver import WikidataItemResolver
 
 
 class CountryNameResolver(WikidataItemResolver):

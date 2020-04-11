@@ -6,7 +6,7 @@ License: MIT License (see LICENSE.txt)
 Exported classes: ISO31661Resolver
 """
 
-from WikidataTitleResolver import WikidataTitleResolver
+from .WikidataTitleResolver import WikidataTitleResolver
 
 
 class ISO31661Resolver(WikidataTitleResolver):
