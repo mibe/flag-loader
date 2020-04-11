@@ -2,7 +2,7 @@
 
 Part of the flag-loader project.
 
-Copyright: (C) 2014,2016 Michael Bemmerl
+Copyright: (C) 2014,2016,2020 Michael Bemmerl
 License: MIT License (see LICENSE.txt)
 """
 
@@ -72,6 +72,8 @@ class Wikidata(object):
 
             # multiple values are possible (see P31 on Q42)
             for value in values:
-                result[property].append(value['mainsnak']['datavalue'])
+                # We're interested in snaks of type 'value' only.
+                if value['mainsnak']['snaktype'] == 'value':
+                    result[property].append(value['mainsnak']['datavalue'])
         
         return result

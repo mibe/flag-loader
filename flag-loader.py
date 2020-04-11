@@ -22,7 +22,7 @@ parser = argparse.ArgumentParser(description="A tool for downloading country fla
 parser.add_argument('LIST', nargs='+', help="List of data separated by a space (e.g. 'DE AU')")
 group = parser.add_mutually_exclusive_group()
 group.add_argument('--tld', action='store_true', help="Interpret LIST as Top Level Domain (e.g. '.de')")
-group.add_argument('--name', action='store_true', help="Interpret LIST as official English country name (e.g. 'Germany')")
+group.add_argument('--name', action='store_true', help="Interpret LIST as official country name in English (e.g. 'Germany')")
 group.add_argument('--iso-3166-1', action='store_true', help="Interpret LIST as ISO 3166-1 alpha-2 code (e.g. 'DE')")
 
 # More to come: http://www.statoids.com/wab.html
